@@ -1,1 +1,1 @@
-# MinMVP
+# MiniMVP
