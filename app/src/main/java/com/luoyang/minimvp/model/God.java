@@ -10,12 +10,23 @@ public class God extends DataSupport {
     @Column(nullable = false, unique = true)
     private String name;
 
-    public String getName() {
-        return name;
+    private God(Builder builder) {
+        name = builder.name;
     }
 
-    public God setName(String name) {
-        this.name = name;
-        return this;
+    public static final class Builder {
+        private String name;
+
+        public Builder() {
+        }
+
+        public Builder name(String val) {
+            name = val;
+            return this;
+        }
+
+        public God build() {
+            return new God(this);
+        }
     }
 }

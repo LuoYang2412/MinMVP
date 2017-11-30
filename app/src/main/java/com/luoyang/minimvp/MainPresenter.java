@@ -25,9 +25,9 @@ public class MainPresenter implements MainContract.Presenter {
     public void start() {
         if (null == DataSupport.findFirst(God.class)) {
             List<God> godList = new ArrayList<>();
-            godList.add(new God().setName("宙斯"));
-            godList.add(new God().setName("雅典娜"));
-            godList.add(new God().setName("波塞冬"));
+            godList.add(new God.Builder().name("宙斯").build());
+            godList.add(new God.Builder().name("雅典娜").build());
+            godList.add(new God.Builder().name("波塞冬").build());
             DataSupport.saveAllAsync(godList).listen(new SaveCallback() {
                 @Override
                 public void onFinish(boolean success) {
