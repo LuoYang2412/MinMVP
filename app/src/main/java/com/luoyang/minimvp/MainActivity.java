@@ -1,7 +1,6 @@
 package com.luoyang.minimvp;
 
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -20,7 +19,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         setContentView(R.layout.activity_main);
         initView();
         new MainPresenter(this);
-        presenter.start();
+        presenter.subscribe();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.unSubscribe();
     }
 
     @Override
